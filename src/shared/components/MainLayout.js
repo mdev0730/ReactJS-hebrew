@@ -31,7 +31,6 @@ class MainLayout extends Component {
       <Layout className="main-layout">
       <Header />
         <Layout>
-        <Sidebar/>
           <Layout>
               <Content>
                 <RouteWithData exact path="/bid" component={BidScreen} />
@@ -41,6 +40,7 @@ class MainLayout extends Component {
                 {/* <Route exact path="/setting" component={SettingScreen}/> */}
               </Content>
           </Layout>
+        <Sidebar/>
         </Layout>
       </Layout>
     );

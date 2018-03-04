@@ -5,6 +5,7 @@ import SearchInput, { createFilter } from 'react-search-input'
 import itemHeader from './components/itemheader';
 import CompanyItem from '../shared/components/CompanyItem';
 import SellItem from './components/SellItem';
+import DirectionProvider, { DIRECTIONS } from 'react-with-direction/dist/DirectionProvider';
 var NumberFormat = require('react-number-format');
 
 class Request extends Component {
@@ -207,6 +208,8 @@ class Request extends Component {
     const { companies, sellitems, visible, discountVal } = this.state;
 
     return (
+
+      <DirectionProvider direction={DIRECTIONS.RTL}>
       <div id="request" className="request-screen">
         <div className="request-search">
           <SearchInput className="search-input" onChange={this.searchUpdated} />
@@ -225,20 +228,20 @@ class Request extends Component {
             <div className="request-content-header">
               <img className="image" src={require('../shared/img/group.png')} />
               <div className="groupname">
-                <div className="group">TOGEL Constractors</div>
-                <div className="project">Project Name: Gypsum Works</div>
+                <div className="group">טוגל בנייה</div>
+                <div className="project">שם פרוייקט: עבודות גבס</div>
               </div>
               <div className="delivery">
-                <div><b>Delivery date:</b>21/02/18</div>
-                <div><b>Address:</b> 3 Hanoshoshet St. Tel Aviv</div>
+                <div><b>תאריך אספקה:</b>21/02/18</div>
+                <div><b>כתובת:</b> הנחושת 3, תל אביב</div>
               </div>
               <div className="payment">
-                <div><b>Payment:</b> By credit card</div>
-                <div><b>Remark:</b> Half payment on the card and the rest on checks every month</div>
+                <div><b>תשלום באמצעות:</b> כרטיס אשראי</div>
+                <div><b>הערות:</b> מחצית מהסכום בכ.אשראי והחצי השני ב-3 שיקים</div>
               </div>
             </div>
             <div className="colors-paint">
-              <div className="data">Colors and paint</div>
+              <div className="data">צבע</div>
             </div>
             <div className="content-list" >
               {
@@ -262,10 +265,10 @@ class Request extends Component {
           <div className="total-view" style={{ backgroundImage: `url(${require('../shared/img/background_bottom.png')})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto' }}>
             <div className="total-left-view">
               <div style={{ display: 'flex' }}>
-                Total: <div className="price-val">{this.getTotalAmount().toLocaleString()} NIS</div>
+              סה”כ: <div className="price-val">{this.getTotalAmount().toLocaleString()} ש”ח</div>
               </div>
               <div style={{ display: 'flex' }}>
-                Discount: <NumberFormat format="##%" className="price-val" value={this.state.discountVal}
+              הנחה: <NumberFormat format="##%" className="price-val" value={this.state.discountVal}
                   onChange={(e, value) => {
                     const formattedValue = e.target.value;
                     var str = formattedValue.substring(0, formattedValue.length - 1);
@@ -273,23 +276,23 @@ class Request extends Component {
                   }} />
               </div>
               <div style={{ display: 'flex' }}>
-                After discount: <div className="val">{(this.getTotalAmount() * (1 - this.state.discountVal / 100)).toLocaleString()} NIS</div>
+              מחיר לאחר הנחה: <div className="val">{(this.getTotalAmount() * (1 - this.state.discountVal / 100)).toLocaleString()} ש”ח</div>
               </div>
               <div style={{ display: 'flex' }}>
-                VAT(17%): <div className="val">{((this.getTotalAmount() * (1 - this.state.discountVal / 100)) * 0.17).toLocaleString()} NIS</div>
+              מע”מ (17%): <div className="val">{((this.getTotalAmount() * (1 - this.state.discountVal / 100)) * 0.17).toLocaleString()} ש”ח</div>
               </div>
             </div>
             <div className="totla-right-view is-right">
               <div className="right-image" style={{ backgroundImage: `url(${require('../shared/img/total_discount.png')})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                <div className="total-payment">Total payment:</div>
+                <div className="total-payment">סה”כ לשתלום</div>
                 <div className="payment-val"> {((this.getTotalAmount() * (1 - this.state.discountVal / 100)) * 1.17).toLocaleString()}  </div>
-                <div className="payment-type"> NIS </div>
+                <div className="payment-type"> ש”ח </div>
               </div>
             </div>
           </div>
           <div className="send-btt" id="sendbutton" onClick={() => this.sendClick()} >
             <div style={{ display: 'flex' }} >
-              Send
+             שלח
             <img src={require('../shared/img/check1.png')} />
             </div>
           </div>
@@ -308,6 +311,7 @@ class Request extends Component {
           </div>
         </Modal>
       </div>
+      </DirectionProvider>
     )
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Form, Icon, Input, Row, Col, Menu, Dropdown } from 'antd';
 import CompanyIcon from '../img/company1.png';
+import DirectionProvider, { DIRECTIONS } from 'react-with-direction/dist/DirectionProvider';
 
 const FormItem = Form.Item;
 const Header = Layout.Header;
@@ -24,6 +25,7 @@ class AppHeader extends Component {
     // if (!user) return null;
 
     const profileMenu = (
+      <DirectionProvider direction={DIRECTIONS.RTL}>
       <Menu>
         <Menu.Item >
           <div className="profile-menu-mail"  onClick={() => this.onSetting()}>
@@ -71,9 +73,11 @@ class AppHeader extends Component {
           </div>
         </Menu.Item>
       </Menu>
+      </DirectionProvider>
     );
 
     return (
+      <DirectionProvider direction={DIRECTIONS.RTL}>
       <Header className="header">
         {/* <Row>
           <Col span={24}> */}
@@ -105,6 +109,7 @@ class AppHeader extends Component {
         {/* </Col>
         </Row> */}
       </Header>
+      </DirectionProvider>
     );
   }
 }
