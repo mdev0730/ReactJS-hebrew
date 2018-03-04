@@ -28,11 +28,11 @@ class Signup extends Component {
     return (
       <div id="signup" layout="vertical" style={{ backgroundImage: `url(${require('../shared/img/authRegist.png')})`, backgroundRepeat: 'no-repeat' }} className="signup">
         <div className="signup-dialog">
-          <div className="signup-title">Registration</div>
+          <div className="signup-title">הרשמה </div>
           <Link to="./signin">
             <img className="signup-close" src={require('../shared/img/close.png')} />
           </Link>
-          <div className="signup-help">Please fill in your information below</div>
+          <div className="signup-help">יש להזין את פרטי החברה באופן חד פעמי</div>
           <div className="signup-wrapper">
             <SignupForm onSubmit={this.handleSubmit} />
           </div>

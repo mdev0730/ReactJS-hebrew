@@ -3,6 +3,7 @@ import { Form, Button, Alert } from 'antd';
 import { Field, reduxForm } from 'redux-form';
 import { renderInput } from '../../shared/utils/form_components';
 import { required, password } from '../../shared/utils/form_validations';
+import DirectionProvider, { DIRECTIONS } from 'react-with-direction/dist/DirectionProvider';
 
 const FormItem = Form.Item;
 
@@ -11,89 +12,91 @@ class SignupForm extends Component {
     const { handleSubmit, error, submitting } = this.props;
 
     return (
-      <Form layout="vertical" className="signup-form" onSubmit={handleSubmit}>
+      <DirectionProvider direction={DIRECTIONS.RTL}>
+        <Form layout="vertical" className="signup-form" onSubmit={handleSubmit}>
 
-        {error && <FormItem><Alert type="error" message={error} closable /></FormItem>}
-        <div style={{ display: 'flex' }}>
-          <Field
-            name="comp-name"
-            label="Company Name"
-            component={renderInput}
-            placeholder=""
-            validate={required}
-          />
-          <Field
-            name="comp-number"
-            label="Company Number"
-            component={renderInput}
-            placeholder=""
-            validate={required}
-          />
-        </div>
+          {error && <FormItem><Alert type="error" message={error} closable /></FormItem>}
+          <div style={{ display: 'flex' }}>
+            <Field
+              name="comp-name"
+              label="שם החברה"
+              component={renderInput}
+              placeholder=""
+              validate={required}
+            />
+            <Field
+              name="comp-number"
+              label="ח.פ. "
+              component={renderInput}
+              placeholder=""
+              validate={required}
+            />
+          </div>
 
-        <div style={{ display: 'flex' }}>
-          <Field
-            name="password"
-            label="Password"
-            component={renderInput}
-            placeholder=""
-            type="password"
-            validate={[required, password]}
-          />
-          <Field
-            name="confirmpassword"
-            label="Password Authentication"
-            component={renderInput}
-            placeholder=""
-            type="password"
-            validate={[required, password]}
-          />
-        </div>
+          <div style={{ display: 'flex' }}>
+            <Field
+              name="password"
+              label="סיסמא"
+              component={renderInput}
+              placeholder=""
+              type="password"
+              validate={[required, password]}
+            />
+            <Field
+              name="confirmpassword"
+              label="אישור סיסמא"
+              component={renderInput}
+              placeholder=""
+              type="password"
+              validate={[required, password]}
+            />
+          </div>
 
-        <div style={{ display: 'flex' }}>
-          <Field
-            name="address"
-            label="Address"
-            component={renderInput}
-            placeholder=""
-            validate={required}
-          />
-          <Field
-            name="email"
-            label="Email"
-            component={renderInput}
-            placeholder=""
-            validate={required}
-          />
+          <div style={{ display: 'flex' }}>
+            <Field
+              name="address"
+              label="כתובת"
+              component={renderInput}
+              placeholder=""
+              validate={required}
+            />
+            <Field
+              name="email"
+              label="דוא”ל"
+              component={renderInput}
+              placeholder=""
+              validate={required}
+            />
+          </div>
+          <div style={{ display: 'flex' }}>
+            <Field
+              name="contact"
+              label="איש קשר "
+              component={renderInput}
+              placeholder=""
+              validate={required}
+            />
+            <Field
+              name="phone"
+              label="טלפון"
+              component={renderInput}
+              placeholder=""
+              validate={required}
+            />
+          </div>
+          <div className="term1">
+          ע”י יצירת החשבון הינך מסכים ל-
         </div>
-        <div style={{ display: 'flex' }}>
-          <Field
-            name="contact"
-            label="Contact"
-            component={renderInput}
-            placeholder=""
-            validate={required}
-          />
-          <Field
-            name="phone"
-            label="Phone"
-            component={renderInput}
-            placeholder=""
-            validate={required}
-          />
-        </div>
-        <div className="term1">
-          By opening an account, you agree to
-        </div>
-        <div className="term1">
-          our <span className="fontH1" style={{color:'#1A9FFF'}}>Terms of Use</span>
-        </div>
-        <FormItem>
-          <Button type="primary" loading={submitting} htmlType="submit" className="register-button fontH1">
-            Register
+          <div className="term1">
+            <span className="fontH1" style={{ color: '#1A9FFF' }}>תנאי שימוש</span>
+          </div>
+          <FormItem>
+            <Button type="primary" loading={submitting} htmlType="submit" className="register-button fontH1">
+            הרשם
           </Button>
-        </FormItem>
-      </Form>
+          </FormItem>
+        </Form>
+      </DirectionProvider>
     )
   }
 }
