@@ -1,0 +1,26 @@
+.ant-menu-dark {
+  .ant-menu-item,
+  .ant-menu-item-group-title,
+  .ant-menu-item > a {
+    color: black;
+  }
+}
+
+.ant-menu {
+  .ant-menu-item:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-left: 3px solid #1890ff;
+    border-right-width: 0
+  }
+}
+
+.ant-menu-item-selected {
+  img {
+    -webkit-filter: grayscale(0);
+    opacity: 1;
+  }
+}
