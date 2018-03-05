@@ -236,29 +236,28 @@ class Order extends Component {
   render() {
     const { companies, sellitems } = this.state;
     var options = [
-      { label: 'All', value: 'name' },
-      { label: 'Constructor', value: 'name' },
-      { label: 'Project name', value: 'date' },
-      { label: 'Delivery date', value: 'date' },
-      { label: 'Total amount', value: 'date' },
+      { label: 'הכל', value: 'name' },
+      { label: 'קבלן', value: 'name' },
+      { label: 'שם פרוייקט', value: 'date' },
+      { label: 'סך הזמנה', value: 'date' },
     ];
     var options1 = [
-      { label: 'All', value: 'all' },
-      { label: 'paid', value: 'date' },
-      { label: 'not paid', value: 'date' },
-      { label: 'supplied', value: 'date' },
-      { label: 'not supplied', value: 'date' },
+      { label: 'הכל', value: 'all' },
+      { label: 'לא שולם + לא סופק', value: 'date' },
+      { label: 'לא שולם + סופק', value: 'date' },
+      { label: 'שולם + לא סופק', value: 'date' },
     ];
 
     return (
       <DirectionProvider direction={DIRECTIONS.RTL}>
         <div id="request" className="request-screen">
           <div className="request-search">
-            <SearchInput className="search-input" onChange={this.searchUpdated} />
+            <SearchInput className="search-input" onChange={this.searchUpdated} placeholder="חיפוש"/>
             <div className="filter-view">
               <div className="sort-name">מיין לפי:</div>
               <Select
                 className="select-sort"
+                placeholder="בחר"
                 onInputChange={(inputValue) => this._inputValue = inputValue}
                 options={options}
                 optionRenderer={this.renderOption}
@@ -271,6 +270,7 @@ class Order extends Component {
               <div className="sort-name">סנן לפי:</div>
               <Select
                 className="select-sort"
+                placeholder="בחר"
                 onInputChange={(inputValue) => this._inputValue = inputValue}
                 options={options1}
                 optionRenderer={this.renderOption}

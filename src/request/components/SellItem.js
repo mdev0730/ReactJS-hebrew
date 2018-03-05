@@ -41,7 +41,7 @@ class SellItem extends Component {
         visible: false,
         confirmLoading: false,
       });
-    }, 2000);
+    }, 1000);
   }
   handleCancel = () => {
     console.log('Clicked cancel button');
@@ -108,7 +108,7 @@ class SellItem extends Component {
                 </div>
                 :
                 <div>
-                  <ChangeItem item={item} backEvent={this.backClick}/>
+                  <ChangeItem item={item} backEvent={this.backClick} handleOk={this.handleOk}/>
                 </div>
               // <div>{ data[selectedItemIndex].itemname }</div>
 

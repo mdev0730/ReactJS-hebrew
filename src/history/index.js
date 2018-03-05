@@ -226,7 +226,7 @@ class History extends Component {
       <DirectionProvider direction={DIRECTIONS.RTL}>
         <div id="request" className="request-screen">
           <div className="request-search">
-            <SearchInput className="search-input" onChange={this.searchUpdated} />
+            <SearchInput className="search-input" onChange={this.searchUpdated} placeholder="חיפוש" />
             <div className="search-list">
               {
                 companies.map((company, index) => {

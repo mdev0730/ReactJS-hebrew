@@ -13,7 +13,7 @@ class ChangeItem extends Component {
     }
     render() {
         const { item } = this.state;
-        const { backEvent } = this.props;
+        const { backEvent, handleOk } = this.props;
         return (
             <div className="edit-sell-item">
                 <div style={{height:'30px'}}>
@@ -67,7 +67,7 @@ class ChangeItem extends Component {
                                     <div className="minus">-</div>
                                 </div>
                             </div>
-                            <Button onClick={() => this.handleCancel()}>הוסף</Button>
+                            <Button onClick={() => handleOk()}>הוסף</Button>
                         </div>
                     </div>
                 </DirectionProvider>
