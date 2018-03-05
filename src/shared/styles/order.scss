@@ -7,9 +7,9 @@
         line-height: normal;
         font-weight: bold;
         font-size: 12px;
-        text-align: left;        
+        text-align: right;        
         color: #1A9FFF;
-        margin-left: 12px;
+        margin-right: 12px;
         width: 70px;
     }
     .filter-name {
@@ -34,7 +34,7 @@
                 line-height: 36px;
                 font-weight: normal;
                 font-size: 12px;
-                text-align: left;    
+                text-align: right;    
                 color: #BCBBC3;
                 .Select-value-label {
                     color: #BCBBC3 !important;
@@ -69,7 +69,7 @@
         display: flex;
         width: 277px;
         height: 95px; 
-        padding-left:12px;
+        padding-right:12px;
         background: #F9F9F9;
       cursor: pointer;
       .company-info {
@@ -83,16 +83,16 @@
         }
         .time {
           width:80px;
-          margin-left:10px;
+          margin-rightt:10px;
           font-family: Arial;
           font-weight: normal;
           font-size: 12px;
-          text-align: right;
+          text-align: left;
           color: #BCBBC3;
         }
       }
       .view-paid {
-          margin-left: 10px;
+          margin-right: 10px;
           width: 64px;
           height: 16px;
           border: 1px solid #16c360;
@@ -104,7 +104,7 @@
           color: #16c360;
         }
         .view-supplied {
-          margin-left: 10px;
+          margin-right: 10px;
           width: 64px;
           height: 16px;
           border: 1px solid #16c360;
@@ -116,7 +116,7 @@
           color: #16c360;
         }
         .view-nopaid {
-          margin-left: 10px;
+          margin-right: 10px;
           width: 64px;
           height: 16px;
           border: 1px solid #e2445c;
@@ -129,7 +129,7 @@
       
         }
         .view-nosupplied {
-          margin-left: 10px;
+          margin-right:  10px;
           width: 64px;
           height: 16px;
           border: 1px solid #e2445c;

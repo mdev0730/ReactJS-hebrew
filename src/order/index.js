@@ -7,6 +7,7 @@ import 'react-select/dist/react-select.css';
 import itemHeader from '../request/components/itemheader';
 import CompanyItemOrder from '../shared/components/CompanyItemOrder';
 import QuotItem from '../bid/components/QuotItem';
+import DirectionProvider, { DIRECTIONS } from 'react-with-direction/dist/DirectionProvider';
 var NumberFormat = require('react-number-format');
 
 class Order extends Component {
@@ -250,117 +251,119 @@ class Order extends Component {
     ];
 
     return (
-      <div id="request" className="request-screen">
-        <div className="request-search">
-          <SearchInput className="search-input" onChange={this.searchUpdated} />
-          <div className="filter-view">
-            <div className="sort-name">Sort by:</div>
-            <Select
-              className="select-sort"
-              onInputChange={(inputValue) => this._inputValue = inputValue}
-              options={options}
-              optionRenderer={this.renderOption}
-              onChange={this.setValue}
-              value={this.state.sort_label}
-              valueRenderer={this.renderValue}
-            />
-          </div>
-          <div className="filter-view">
-            <div className="sort-name">Filter by:</div>
-            <Select
-              className="select-sort"
-              onInputChange={(inputValue) => this._inputValue = inputValue}
-              options={options1}
-              optionRenderer={this.renderOption}
-              onChange={this.setValue1}
-              value={this.state.filter_label}
-              valueRenderer={this.renderValue}
-            />
-          </div>
-          <div className="search-list-order">
-            {
-              companies.map((company, index) => {
-                return (
-                  <CompanyItemOrder item={company} key={index} />
-                )
-              })
-            }
-          </div>
-        </div>
-        <div style={{ width: '100%' }}>
-          <div className="request-content">
-            <div className="request-content-header">
-              <img className="image" src={require('../shared/img/group.png')} />
-              <div className="groupname">
-                <div className="group">TOGEL Constractors</div>
-                <div className="project">Project Name: Gypsum Works</div>
-              </div>
-              <div className="delivery">
-                <div><b>Delivery date:</b>21/02/18</div>
-                <div><b>Address:</b> 3 Hanoshoshet St. Tel Aviv</div>
-              </div>
-              <div className="payment">
-                <div><b>Payment:</b> By credit card</div>
-                <div><b>Remark:</b> Half payment on the card and the rest on checks every month</div>
-              </div>
-              <div className="contact">
-                <div className="contact-btt">
-                  <img src={require('../shared/img/contact.png')} />
-                  <p>Contact</p>
-                </div>
-                <div className="email-btt">
-                  <img src={require('../shared/img/email.png')} />
-                  <p>Email</p>
-                </div>
-              </div>
+      <DirectionProvider direction={DIRECTIONS.RTL}>
+        <div id="request" className="request-screen">
+          <div className="request-search">
+            <SearchInput className="search-input" onChange={this.searchUpdated} />
+            <div className="filter-view">
+              <div className="sort-name">מיין לפי:</div>
+              <Select
+                className="select-sort"
+                onInputChange={(inputValue) => this._inputValue = inputValue}
+                options={options}
+                optionRenderer={this.renderOption}
+                onChange={this.setValue}
+                value={this.state.sort_label}
+                valueRenderer={this.renderValue}
+              />
             </div>
-            <div className="colors-paint">
-              <div className="data">Colors and paint</div>
+            <div className="filter-view">
+              <div className="sort-name">סנן לפי:</div>
+              <Select
+                className="select-sort"
+                onInputChange={(inputValue) => this._inputValue = inputValue}
+                options={options1}
+                optionRenderer={this.renderOption}
+                onChange={this.setValue1}
+                value={this.state.filter_label}
+                valueRenderer={this.renderValue}
+              />
             </div>
-            <div className="content-list-bid" >
+            <div className="search-list-order">
               {
-                sellitems.map((sell, index) => {
+                companies.map((company, index) => {
                   return (
-                    <QuotItem item={sell} data={sellitems} key={index} />
+                    <CompanyItemOrder item={company} key={index} />
                   )
                 })
               }
             </div>
           </div>
-          <div className="total-view" style={{ backgroundImage: `url(${require('../shared/img/background_bottom.png')})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto' }}>
-            <div className="total-left-view">
-              <div style={{ display: 'flex' }}>
-                Total: <div className="price-val-normal">{this.getTotalAmount().toLocaleString()} NIS</div>
+          <div style={{ width: '100%' }}>
+            <div className="request-content">
+              <div className="request-content-header">
+                <img className="image" src={require('../shared/img/group.png')} />
+                <div className="groupname">
+                  <div className="group">טוגל בנייה</div>
+                  <div className="project">שם פרוייקט: עבודות גבס</div>
+                </div>
+                <div className="delivery">
+                  <div><b>תאריך אספקה:</b>21/02/18</div>
+                  <div><b>כתובת:</b> הנחושת 3, תל אביב</div>
+                </div>
+                <div className="payment">
+                  <div><b>תשלום באמצעות:</b> כרטיס אשראי</div>
+                  <div><b>הערות:</b> מחצית מהסכום בכ.אשראי והחצי השני ב-3 שיקים</div>
+                </div>
+                <div className="contact">
+                  <div className="contact-btt">
+                    <img src={require('../shared/img/contact.png')} />
+                    <p>  טלפון </p>
+                  </div>
+                  <div className="email-btt">
+                    <img src={require('../shared/img/email.png')} />
+                    <p>דוא״ל</p>
+                  </div>
+                </div>
               </div>
-              <div style={{ display: 'flex' }}>
-                Discount: <div className="price-val-normal">10%</div>
+              <div className="colors-paint">
+                <div className="data">צבע</div>
               </div>
-              <div style={{ display: 'flex' }}>
-                After discount: <div className="val">{(this.getTotalAmount() * 0.9).toLocaleString()} NIS</div>
-              </div>
-              <div style={{ display: 'flex' }}>
-                VAT(17%): <div className="val">{(this.getTotalAmount() * 0.9 * 0.17).toLocaleString()} NIS</div>
+              <div className="content-list-bid" >
+                {
+                  sellitems.map((sell, index) => {
+                    return (
+                      <QuotItem item={sell} data={sellitems} key={index} />
+                    )
+                  })
+                }
               </div>
             </div>
-            <div className="receive-payment-view is-center">
-              <p>Paid:1,000.00 NIS</p>
-              <p>left to pay: 262.81 NIS</p>
-              <NumberFormat className="receive-payment-val" value={this.state.discountVal}
-                onChange={(e, value) => {
-                  const formattedValue = e.target.value;
-                }} />
-              <Button className="receive-payment-button">Receive Payment</Button>
-            </div>
-            <div className="totla-right-view is-right">
-              <div className="right-image" style={{ backgroundImage: `url(${require('../shared/img/total_discount.png')})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                <div className="total-payment">Total payment:</div>
-                <div className="payment-val"> {(this.getTotalAmount() * 0.9 * 1.17).toLocaleString()}</div>
-                <div className="payment-type"> NIS </div>
+            <div className="total-view" style={{ backgroundImage: `url(${require('../shared/img/background_bottom.png')})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto' }}>
+              <div className="total-left-view">
+                <div style={{ display: 'flex' }}>
+                  סה”כ: <div className="price-val-normal">{this.getTotalAmount().toLocaleString()} ש”ח</div>
+                </div>
+                <div style={{ display: 'flex' }}>
+                  הנחה: <div className="price-val-normal">10%</div>
+                </div>
+                <div style={{ display: 'flex' }}>
+                  מחיר לאחר הנחה: <div className="val">{(this.getTotalAmount() * 0.9).toLocaleString()} ש”ח</div>
+                </div>
+                <div style={{ display: 'flex' }}>
+                  מע”מ (17%): <div className="val">{(this.getTotalAmount() * 0.9 * 0.17).toLocaleString()} ש”ח</div>
+                </div>
+              </div>
+              <div className="receive-payment-view is-center">
+                <p>שולם:1,000.00  ש”ח</p>
+                <p>נותר לתשלום: 262.81  ש”ח</p>
+                <NumberFormat className="receive-payment-val" value={this.state.discountVal}
+                  onChange={(e, value) => {
+                    const formattedValue = e.target.value;
+                  }} />
+                <Button className="receive-payment-button">התקבל</Button>
+              </div>
+              <div className="totla-right-view is-right">
+                <div className="right-image" style={{ backgroundImage: `url(${require('../shared/img/total_discount.png')})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+                <div className="total-payment">סה”כ לשתלום</div>
+                  <div className="payment-val"> {(this.getTotalAmount() * 0.9 * 1.17).toLocaleString()}</div>
+                  <div className="payment-type"> ש”ח </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </DirectionProvider>
     )
   }
 }

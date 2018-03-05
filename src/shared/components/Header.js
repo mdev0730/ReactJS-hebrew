@@ -25,39 +25,38 @@ class AppHeader extends Component {
     // if (!user) return null;
 
     const profileMenu = (
-      <DirectionProvider direction={DIRECTIONS.RTL}>
       <Menu>
         <Menu.Item >
           <div className="profile-menu-mail"  onClick={() => this.onSetting()}>
-            <img src={CompanyIcon} className="company-img"/>
-            <div className="menu-mail">
+            <div className="menu-arrow">
+              <img src={require('../img/back.png')}/>
+            </div>
+            <div className="menu-mail rtl">
               <div className="name">Touboul</div>
               <div className="mail">toboul@gmail.com</div>
             </div>
-            <div className="menu-arrow">
-              <img src={require('../img/arrow.png')}/>
-            </div>
+            <img src={CompanyIcon} className="company-img"/>
           </div>
           <div className="menu-divide"/>
         </Menu.Item>
         <Menu.Item>
-          <div className="menu-about" onClick={() => this.onAbout()}>
+          <div className="menu-about is-right" onClick={() => this.onAbout()}>
+            <div className="about">אודות</div>
             <img src={require('../img/about.png')}/>
-            <div className="about">About</div>
           </div>
           <div className="menu-divide"/>
         </Menu.Item>
         <Menu.Item>
-          <div className="menu-terms">
+          <div className="menu-terms is-right">
+            <div className="about">תנאי שימוש</div>
             <img src={require('../img/terms.png')}/>
-            <div className="about">Terms of Us</div>
           </div>
           <div className="menu-divide"/>
         </Menu.Item>
         <Menu.Item>
-          <div className="menu-contact">
+          <div className="menu-contact is-right">
+            <div className="about">יצירת קשר</div>
             <img src={require('../img/call.png')}/>
-            <div className="about">Contact Us</div>
           </div>
         </Menu.Item>
         {/* <Menu.Item>
@@ -67,13 +66,12 @@ class AppHeader extends Component {
           </div>
         </Menu.Item> */}
         <Menu.Item>
-          <div onClick={() => this.onLogout()} className="logout">
+          <div onClick={() => this.onLogout()} className="logout is-center">
+            <div className="log">התנתק</div>
             <img src={require('../img/logout.png')}/>
-            <div className="log">Log out</div>
           </div>
         </Menu.Item>
       </Menu>
-      </DirectionProvider>
     );
 
     return (
@@ -86,7 +84,7 @@ class AppHeader extends Component {
         </div>
         <div className="profile-status is-right">
           <div className="title">Touboul</div>
-          <Menu mode="horizontal" selectable={true}>
+          <Menu mode="horizontal" selectable={true} >
             <Menu.Item>
               <Dropdown overlay={profileMenu}>
                 <div className="dropdown">
