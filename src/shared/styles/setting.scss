@@ -100,7 +100,8 @@
       }
       .signup-form .ant-col-xs-24{
         width: 100% !important;
-        padding-left:10px; 
+        padding-right:10px;
+        text-align: right;
         label{
           font-family: Arial;
           font-style: normal;
@@ -144,7 +145,7 @@
           width: 189px;
           height: 49px;     
           margin-top: 80px;
-          margin-left: 400px; 
+          margin-right: 400px; 
           background: #16C360;
           border-color: transparent;
           border-radius: 7px;
@@ -172,6 +173,7 @@
       }
       .password-form .ant-col-xs-24{
         width: 100% !important;
+        text-align: right;
         label{
           font-family: Arial;
           font-style: normal;
@@ -298,13 +300,13 @@
     }
     .company-details {
       width: 650px;
-      margin-left: 100px;
+      margin-right: 100px;
       .ant-form-item {
         width:332px;
       }
       .signup-form .ant-col-xs-24{
         width: 100% !important;
-        padding-left:10px; 
+        padding-right:10px; 
         label{
           font-family: Arial;
           font-style: normal;

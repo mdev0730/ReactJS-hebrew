@@ -8,6 +8,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Companysetting from './components/Companysetting';
 import CompanyPassword from './components/CompanyPassword';
 import CompanyPayment from './components/CompanyPayment';
+import DirectionProvider, { DIRECTIONS } from 'react-with-direction/dist/DirectionProvider';
 import 'react-tabs/style/react-tabs.css';
 
 class Setting extends Component {
@@ -24,18 +25,20 @@ class Setting extends Component {
     }
     render() {
         return (
+            <DirectionProvider direction={DIRECTIONS.RTL}>
             <div className="setting">
                 <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                     <TabList>
-                        <Tab>Company Details</Tab>
-                        <Tab>Password</Tab>
-                        <Tab>Payments</Tab>
+                        <Tab>פרטי החברה</Tab>
+                        <Tab>סיסמא</Tab>
+                        <Tab>אמצעי תשלום</Tab>
                     </TabList>
                     <TabPanel><Companysetting/></TabPanel>
                     <TabPanel><CompanyPassword/></TabPanel>
                     <TabPanel><CompanyPayment /></TabPanel>
                 </Tabs>
             </div>
+            </DirectionProvider>
         );
     }
 }

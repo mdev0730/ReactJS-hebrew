@@ -62,17 +62,17 @@ class CompanyPayment extends Component {
         return (
             <div className="company-payment">
                 <div className="company-logo">
-                    <p> Choose payment method below </p>
+                    <p> בחר אמצעי תשלום </p>
                     {
                         this.state.paytype_label === null ?
                             <div>
                                 <div className="visa-no-selected">
                                     <img className="visa-img" src={require('../../shared/img/visa.png')} />
-                                    <div className="pay-mode-text">pay with Credit Card</div>
+                                    <div className="pay-mode-text">שלם עם כרטיס אשראי</div>
                                 </div>
                                 <div className="paypal-no-selected">
                                     <img className="paypal-img" src={require('../../shared/img/paypal.png')} />
-                                    <div className="pay-mode-text">pay with PayPal</div>
+                                    <div className="pay-mode-text">שלם עם PayPal</div>
                                 </div>
                             </div>
                             :
@@ -80,22 +80,22 @@ class CompanyPayment extends Component {
                                 <div>
                                     <div className="visa-selected">
                                         <img className="visa-img" src={require('../../shared/img/visa.png')} />
-                                        <div className="pay-mode-text">pay with Credit Card</div>
+                                        <div className="pay-mode-text">שלם עם כרטיס אשראי</div>
                                     </div>
                                     <div className="paypal-no-selected">
                                         <img className="paypal-img" src={require('../../shared/img/paypal.png')} />
-                                        <div className="pay-mode-text">pay with PayPal</div>
+                                        <div className="pay-mode-text">שלם עם PayPal</div>
                                     </div>
                                 </div>
                                 :
                                 <div>
                                     <div className="visa-no-selected">
                                         <img className="visa-img" src={require('../../shared/img/visa.png')} />
-                                        <div className="pay-mode-text">pay with Credit Card</div>
+                                        <div className="pay-mode-text">שלם עם כרטיס אשראי</div>
                                     </div>
                                     <div className="paypal-selected">
                                         <img className="paypal-img" src={require('../../shared/img/paypal.png')} />
-                                        <div className="pay-mode-text">pay with PayPal</div>
+                                        <div className="pay-mode-text">שלם עם PayPal</div>
                                     </div>
                                 </div>
                     }
@@ -105,7 +105,7 @@ class CompanyPayment extends Component {
                     <Form layout="vertical" className="signup-form" onSubmit={handleSubmit}>
                         <div style={{ display: 'flex', height: '69px' }}>
                             <div className="field-cardtype">
-                                <div>Card Type</div>
+                                <div>סוג כרטיס</div>
                                 <Select
                                     className="select-type"
                                     options={option_paytype}
@@ -116,14 +116,14 @@ class CompanyPayment extends Component {
                                 />
                             </div>
                             <div className="field-id">
-                                <div>ID Number</div>
+                                <div>ת.ז.</div>
                                 <NumberFormat format="##########" className="in-id-format" />
                             </div>
                         </div>
 
                         <div style={{ display: 'flex', marginTop: '30px', height: '69px' }}>
                             <div className="field-card-input">
-                                <div>Card Number</div>
+                                <div>מספר כרטיס</div>
                                 <NumberFormat format="#### #### #### ####" className="in-card-format" />
                             </div>
                             <div className="field-card-input">
@@ -134,7 +134,7 @@ class CompanyPayment extends Component {
                         <div style={{ display: 'flex', marginTop: '30px' }} >
                             <div style={{ display: 'flex' }} className="exp">
                                 <div className="field-month">
-                                    <div>Exp.Month</div>
+                                    <div> חודש </div>
                                     <Select
                                         className="select-month"
                                         onInputChange={(inputValue) => this._inputValue = inputValue}
@@ -146,7 +146,7 @@ class CompanyPayment extends Component {
                                     />
                                 </div>
                                 <div className="field-year">
-                                    <div>Exp.Year</div>
+                                    <div> שנה </div>
                                     <Select
                                         className="select-year"
                                         onInputChange={(inputValue) => this._inputValue = inputValue}
@@ -161,7 +161,7 @@ class CompanyPayment extends Component {
                             <div className="input-full-name">
                                 <Field
                                     name="full-name"
-                                    label="Full Name"
+                                    label="שם מלא"
                                     component={renderInput}
                                     placeholder=""
                                     validate={required}
@@ -170,7 +170,7 @@ class CompanyPayment extends Component {
                         </div>
                         <FormItem>
                             <Button type="primary" loading={submitting} htmlType="submit" className="save-button">
-                                Save
+                            שמור
                             </Button>
                         </FormItem>
                     </Form></div>
